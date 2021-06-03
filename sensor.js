@@ -14,7 +14,7 @@ module.exports = function(RED) {
         var readSensor = function(input_msg) {
             //node.log("reading a sensor with id=" + node.sensorid);
             // TODO error handling
-            sense.temperature(node.sensorid, function(err, value) {
+            sense.temperature(input_msg.sensorid, function(err, value) {
                 var topic;
                 if (input_msg == null)
                       topic = node.topic;
