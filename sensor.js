@@ -2,7 +2,7 @@ module.exports = function(RED) {
 
     var sense = require('ds18b20');
 
-    function DS18B20Node(config) {
+    function DynamicDS18B20Node(config) {
         RED.nodes.createNode(this, config);
         this.sensorid = config.sensorid;
         this.repeat = config.repeat;
@@ -42,7 +42,7 @@ module.exports = function(RED) {
             });
     }
 
-    RED.nodes.registerType("sensor-ds18b20", DS18B20Node);
+    RED.nodes.registerType("sensor-dynamic-ds18b20", DynamicDS18B20Node);
 
     RED.httpAdmin.get('/sensors/1wire',function(req,res) {
         // TODO how to handle this credential thing?
