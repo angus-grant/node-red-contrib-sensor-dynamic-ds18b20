@@ -20,8 +20,8 @@
             $.getJSON('/sensors/1wire/',function(data) {
                 $.each(data, function( index, value ) {
                     var isSelected = configuredSensorId === value;
-//                    $("#node-input-sensorid").append(
-//                        new Option(value, value, isSelected, isSelected));
+                    $("#node-input-sensorid").append(
+                        new Option(value, value, isSelected, isSelected));
                 });
             });
         }
