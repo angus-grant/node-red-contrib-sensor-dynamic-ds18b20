@@ -4,10 +4,6 @@ module.exports = function(RED) {
 
     function DynamicDS18B20Node(config) {
         RED.nodes.createNode(this, config);
-        this.sensorid = config.sensorid;
-        this.repeat = config.repeat;
-        // user input is in seconds, this is conversion to miliseconds
-        this.timer = config.timer * 1000;
         this.topic = config.name; 
         var node = this;
 
@@ -30,13 +26,6 @@ module.exports = function(RED) {
             });
         }
 
-        node.on("close", function() {
-            clearInterval(this.tout);
-        });
-
-        if (node.repeat)
-          node.tout = setInterval(readSensor, node.timer);
-
         node.on('input', function(msg){
             readSensor(msg)
             });
@@ -50,7 +39,8 @@ module.exports = function(RED) {
         //if (credentials) {
         sense.sensors(function(err, ids) {
             // TODO error handling
-            res.send(JSON.stringify(ids));
+            //res.send(JSON.stringify(ids));
+            res.send(ids);
         });
     });
 }
