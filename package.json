@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-sensor-dynamic-ds18b20",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Node-RED node to dynamically get sensor id's in UI and read temperatures from DS18B20 sensors",
     "dependencies": {
         "ds18b20": "0.1.0"
