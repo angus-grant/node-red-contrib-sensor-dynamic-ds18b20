@@ -1,6 +1,6 @@
 # DS18B20 Sensor Node-RED node for Raspberry Pi
 
-Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html), inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with dynamically reading DS19B20 sensor id's at run-time in the UI.
+Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html), inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with dynamically reading DS18B20 sensor id's at run-time in the UI.
 
 ![example screenshot](https://user-images.githubusercontent.com/45915404/125448195-3d739f28-7bca-4331-b991-abb52190ebee.png)
 
@@ -16,7 +16,7 @@ The DS18B20 sensors must be connected on GPIO4 (or physical pin #7) because this
 
 ## Requirements
 
-On the Linux system where your Node-RED is running and where your sensors are connected to, make sure you have loaded all the kernel modules needed for working with 1-Wire devices, what the DS1820 sensor is.
+On the Linux system where your Node-RED is running and where your sensors are connected to, make sure you have loaded all the kernel modules needed for working with 1-Wire devices, what the DS18B20 sensor is.
 Thus, you need to active or have activated the 1-Wire Interface on the Rpi. To do this just go to the Raspi-Configuration page with:
 
 ```
@@ -40,10 +40,10 @@ Or just use the `package manager`(or manage pallette) from the Node-Red Interfac
 ## Features
 
 * Click the "Retrieve sensors" button
-* This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by th eunderlying DS18B20 module
+* This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by the underlying DS18B20 module
 * Sensor id's will be loaded into the drop-down menu
 * The sample flow writes the selected id to a global variable
-* This global variabl eis written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
+* This global variable is written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
 * This then reads the temp value from that sensor
 * No more defining temp sensor id's in design mode, you can allocate them dynamically in the UI
 
