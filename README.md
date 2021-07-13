@@ -2,7 +2,7 @@
 
 Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html), inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with some extra functionalities.
 
-![example screenshot](https://raw.githubusercontent.com/charlielito/node-red-contrib-sensor-ds18b20/master/icons/example.png)
+![example screenshot](https://user-images.githubusercontent.com/45915404/125448195-3d739f28-7bca-4331-b991-abb52190ebee.png)
 
 It is compatible only with RaspberryPi hardware and it only reads the temperature values from sensors. The [base library](https://www.npmjs.com/package/ds18b20) is a npm module, which handles with the whole 1-Wire protocol with DS18B20 sensors (aka it does the magic).
 
@@ -31,7 +31,7 @@ Go to `Interfaces` and then to `1-Wire` and `enable` it and reboot the device. Y
 Run the following command in the root directory of your Node-RED install
 
 ```
-npm install node-red-contrib-sensor-ds18b20
+npm install node-red-contrib-sensor-dynamic-ds18b20
 ```
 
 Or just use the `package manager`(or manage pallette) from the Node-Red Interface to search for this module and install it manually.
@@ -39,8 +39,12 @@ Or just use the `package manager`(or manage pallette) from the Node-Red Interfac
 
 ## Features
 
-* You can select a 1-wire device/sensor from a dropdown list in the configuration dialog of the node
-* Configurable time interval of the sensor sampling (in seconds)
-* Periodic sensor sampling can be disabled, and sample temperature only when an external message arrives.
+* Click the "Retrieve sensors" button
+* This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by th eunderlying DS18B20 module
+* Sensor id's will be loaded into the drop-down menu
+* The sample flow writes the selected id to a global variable
+* This global variabl eis written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
+* This then reads the temp value from that sensor
+* No more defining temp sensor id's in design mode, you can allocate them dynamically in the UI
 
-![example screenshot](https://raw.githubusercontent.com/charlielito/node-red-contrib-sensor-ds18b20/master/icons/example_interface.png)
+![sensor id drop-down](https://user-images.githubusercontent.com/45915404/125449045-21c003ab-15e9-4248-b0be-97f0cd343537.png)
