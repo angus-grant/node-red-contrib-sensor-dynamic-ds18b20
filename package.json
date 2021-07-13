@@ -1,13 +1,13 @@
 {
-    "name": "node-red-contrib-sensor-ds18b20",
-    "version": "0.2.0",
-    "description": "Node-RED node to get temperature in centigrades from DS18B20 sensors",
+    "name": "node-red-contrib-sensor-dynamic-ds18b20",
+    "version": "0.1.0",
+    "description": "Node-RED node to dynamically get sensor id's in UI and read temperatures from DS18B20 sensors",
     "dependencies": {
         "ds18b20": "0.1.0"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/charlielito/node-red-contrib-sensor-ds18b20"
+        "url": "https://github.com/angusgrantBC/node-red-contrib-sensor-dynamic-ds18b20"
     },
     "license": "Apache",
     "keywords": [
@@ -20,8 +20,8 @@
         }
     },
     "author": {
-        "name": "Carlos Alvarez",
-        "email": "candres.alv@gmail.com",
-        "url": "https://github.com/charlielito/"
+        "name": "Angus Grant",
+        "email": "angus@brewerschronicle.com",
+        "url": "https://github.com/angusgrantBC"
     }
 }
