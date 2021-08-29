@@ -2,7 +2,8 @@
 
 Node-RED node for working with [DS18B20 sensors](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html), inspired in this [library](https://github.com/stibi/node-red-contrib-ds18b20), but modified to behave slightly different with dynamically reading DS18B20 sensor id's at run-time in the UI.
 
-![example screenshot](https://user-images.githubusercontent.com/45915404/125448195-3d739f28-7bca-4331-b991-abb52190ebee.png)
+![example screenshot](https://user-images.githubusercontent.com/45915404/131245035-7db71763-bf86-4cd2-b8ff-d66bd73ccd6e.png)
+
 
 It is compatible only with RaspberryPi hardware and it only reads the temperature values from sensors. The [base library](https://www.npmjs.com/package/ds18b20) is a npm module, which handles with the whole 1-Wire protocol with DS18B20 sensors (aka it does the magic).
 
@@ -39,13 +40,16 @@ Or just use the `package manager`(or manage pallette) from the Node-Red Interfac
 
 ## Features
 
-* Click the "Retrieve sensors" button
-* This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by the underlying DS18B20 module
-* Sensor id's will be loaded into the drop-down menu
-* The sample flow writes the selected id to a global variable
-* This global variable is written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
-* This then reads the temp value from that sensor
-* No more defining temp sensor id's in design mode, you can allocate them dynamically in the UI
+Usage is split into 2 sections:
+* Retrieving sensor id
+  * Click the "Retrieve sensors" button
+  * This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by the underlying DS18B20 module
+  * Sensor id's will be loaded into the drop-down menu
+  * The sample flow writes the selected id to a global variable
+  * This global variable is written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
+* Retrieving temperature
+  * The saved variable which contains the sensor id passes the variable into the msg.sensorid property of the dynamic DS18B20 node
+  * it's msg.payload value is the temperature of that probe
 
 ![sensor id drop-down](https://user-images.githubusercontent.com/45915404/125449045-21c003ab-15e9-4248-b0be-97f0cd343537.png)
 
