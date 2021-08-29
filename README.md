@@ -45,8 +45,8 @@ Usage is split into 2 sections:
   * Click the "Retrieve sensors" button
   * This will hit the http://127.0.0.1:1880/sensors/1wire/ API provided by the underlying DS18B20 module
   * Sensor id's will be loaded into the drop-down menu by assigning msg.payload from HTTP request node to drop-down menu msg.options property
-  * If already saved, the global.sensor id is passed into the drop-down node as well to pre-select that option
-  * once the drpo-down menu selected item is changed, the selected DS18B20 id to a global variable
+  * The global.temp_sensorid variable is passed into the drop-down node as well to pre-select that option
+  * once the drop-down menu selected item is changed, the selected DS18B20 id to a global variable
 * Retrieving temperature
   * This global variable is written to the "msg.sensorid" property of the node-red-contrib-sensor-dynamic-ds18b20 module.
   * dynamic DS18B20 node msg.payload value is set the temperature of that probe
